@@ -1,0 +1,67 @@
+<div class="card flex flex-column md:flex-row gap-3">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="pi pi-building"></i>
+      </p-inputGroupAddon>
+      <input pInputText placeholder="nome" formControlName="nome" />
+    </p-inputGroup>
+    <div *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched" class="error-message">
+      Nome é obrigatório.
+    </div>
+
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="pi pi-building-columns"></i>
+      </p-inputGroupAddon>
+      <input pInputText placeholder="CNPJ" formControlName="cnpj"  type="text" mask="00.000.000/0000-00"/>
+    </p-inputGroup>
+    <div *ngIf="form.get('cnpj')?.invalid && form.get('cnpj')?.touched" class="error-message">
+      CNPJ é inválido.
+    </div>
+
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="pi pi-address-book"></i>
+      </p-inputGroupAddon>
+      <input type="text" pInputText placeholder="endereco" formControlName="endereco" />
+    </p-inputGroup>
+    <div *ngIf="form.get('endereco')?.invalid && form.get('endereco')?.touched" class="error-message">
+      Endereço é obrigatório.
+    </div>
+
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="pi pi-at"></i>
+      </p-inputGroupAddon>
+      <input 
+        type="text" 
+        pInputText 
+        placeholder="E-mail" 
+        formControlName="email" 
+      />
+    </p-inputGroup>
+    
+    <!-- Mensagem de campo obrigatório -->
+    <div *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched" class="error-message">
+      E-mail é obrigatório.
+    </div>
+    
+    <!-- Mensagem de e-mail inválido -->
+    <div *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched" class="error-message">
+      E-mail inválido.
+    </div>      
+
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="pi pi-phone"></i>
+      </p-inputGroupAddon>
+      <input type="text" pInputText placeholder="telefone" formControlName="telefone" />
+    </p-inputGroup>
+    <div *ngIf="form.get('telefone')?.invalid && form.get('telefone')?.touched" class="error-message">
+      Telefone é obrigatório.
+    </div>
+    <button pButton type="button" (click)="voltar()">Voltar</button>
+    <button pButton type="submit">Salvar</button>
+  </form>
+</div>
