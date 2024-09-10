@@ -1,20 +1,29 @@
-<div class="login-container">
-  <p-card header="Login" styleClass="ui-card-shadow">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="p-fluid">
-        <div class="p-field">
-          <label for="username">Usuário</label>
-          <input pInputText id="username" formControlName="username" placeholder="Digite seu usuário" />
-          <small *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched" class="p-error">Usuário é obrigatório.</small>
-        </div>
-        <div class="p-field">
-          <label for="password">Senha</label>
-          <input pPassword id="password" formControlName="password" placeholder="Digite sua senha" type="password"/>
-          <small *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="p-error">Senha é obrigatória.</small>
-        </div>
-        <p-button label="Login" icon="pi pi-check" type="submit" [disabled]="loginForm.invalid"></p-button>
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden" style="background-size: cover; background-position: center;">
+  <div class="flex flex-column align-items-center justify-content-center">
+    <div style="border-radius: 56px; padding: 0.3rem; background: rgba(33, 150, 243, 0);">
+      <div>
+          <form [formGroup]="loginForm">
+            <p-card header="Login" styleClass="ui-card-shadow">
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="p-fluid">
+                  <div class="p-field">
+                    <label for="username">Usuário</label>
+                    <input pInputText id="username" formControlName="username" placeholder="Digite seu usuário" />
+                    <small *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched" class="p-error">Usuário é obrigatório.</small>
+                  </div>
+                  <div class="p-field">
+                    <label for="password">Senha</label>
+                    <input pPassword id="password" formControlName="password" placeholder="Digite sua senha" type="password"/>
+                    <small *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="p-error">Senha é obrigatória.</small>
+                  </div>
+                  <p-button label="Login" icon="pi pi-check" type="submit" [disabled]="loginForm.invalid"></p-button>
+                </div>
+              </form>
+            </p-card>
+          </form>
       </div>
-    </form>
-  </p-card>
+    </div>
+  </div>
 </div>
+
   
